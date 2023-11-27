@@ -1,0 +1,162 @@
+[
+    {
+        "prompt": "def binary_search(arr, target):\n\nl = 0\nr = len(arr) - 1\n\nwhile l <= r:\n\nm = (l + r) // 2\n\nif arr[m] == target:\n\nreturn m\n\nelif arr[m] > target:\n\nr = m - 1\n\nelse:\n\nl = m + 1\n\nreturn -1",
+        "completion": "def binary_search(arr, target):\n\nl = 0\nr = len(arr) - 1\n\nwhile l <= r:\n\nm = (l + r) // 2\nif arr[m] == target:\n\nreturn m\n\nelif arr[m] > target:\n\nr = m - 1\n\nelse:\n\nl = m + 1\n\nreturn -1"
+    },
+    {
+        "prompt": "def linearSearch(arr, n, x): \n  \n    for i in range (0, n): \n        if arr[i] == x: \n            return i \n    return -1",
+        "completion": "def linearSearch(arr, n, x): \n    for i in range (0, n): \n        if arr[i] == x: \n            return i \n    return -1"
+    },
+    {
+        "prompt": "for i in range(len(arr)): \n  \n    # Find the minimum element in remaining  \n    # unsorted array \n    min_idx = i \n    for j in range(i+1, len(arr)): \n        if arr[min_idx] > arr[j]: \n            min_idx = j \n              \n    # Swap the found minimum element with  \n    # the first element         \n    arr[i], arr[min_idx] = arr[min_idx], arr[i]",
+        "completion": "for i in range(len(arr)): \n    min_idx = i \n    for j in range(i+1, len(arr)): \n        if arr[min_idx] > arr[j]: \n            min_idx = j \n    arr[i], arr[min_idx] = arr[min_idx], arr[i]"
+    },
+    {
+        "prompt": "def bubbleSort(alist):\n    for passnum in range(len(alist)-1,0,-1):\n        for i in range(passnum):\n            if alist[i]>alist[i+1]:\n                temp = alist[i]\n                alist[i] = alist[i+1]\n                alist[i+1] = temp",
+        "completion": "def bubbleSort(alist):\n    for passnum in range(len(alist)-1,0,-1):\n        for i in range(passnum):\n            if alist[i]>alist[i+1]:\n                temp = alist[i]\n                alist[i] = alist[i+1]\n                alist[i+1] = temp\nbubbleSort(alist)"
+    },
+    {
+        "prompt": "def insertionSort(arr): \n  \n    for i in range(1, len(arr)): \n  \n        key = arr[i] \n  \n        j = i-1\n        while j >= 0 and key < arr[j] : \n                arr[j + 1] = arr[j] \n                j -= 1\n        arr[j + 1] = key",
+        "completion": "def insertionSort(arr): \n\n    for i in range(1, len(arr)): \n\n        key = arr[i] \n\n        j = i-1\n        while j >= 0 and key < arr[j] : \n                arr[j + 1] = arr[j] \n                j -= 1\n        arr[j + 1] = key"
+    },
+    {
+        "prompt": "def quickSort(arr): \n    if len(arr) <= 1:\n        return arr\n    else:\n        q = arr[0]\n        l = [n for n in arr if n < q]\n        r = [n for n in arr if n > q]\n        return quickSort(l) + [q] + quickSort(r)",
+        "completion": "def quickSort(arr): \n    if len(arr) <= 1:\n        return arr\n    else:\n        q = arr[0]\n        l = [n for n in arr if n < q]\n        r = [n for n in arr if n > q]\n        return quickSort(l) + [q] + quickSort(r)"
+    },
+    {
+        "prompt": "def mergeSort(arr): \n    if len(arr) >1: \n        mid = len(arr)//2 \n        L = arr[:mid] \n        R = arr[mid:] \n  \n        mergeSort(L) \n        mergeSort(R) \n  \n        i = j = k = 0\n          \n        while i < len(L) and j < len(R): \n            if L[i] < R[j]: \n                arr[k] = L[i] \n                i+=1\n            else: \n                arr[k] = R[j] \n                j+=1\n            k+=1\n          \n        while i < len(L): \n            arr[k] = L[i] \n            i+=1\n            k+=1\n          \n        while j < len(R):",
+        "completion": "arr[k] = R[j] \n            j+=1\n            k+=1\n\ndef mergeSort(arr): \n    if len(arr) >1: \n        mid = len(arr)//2 \n        L = arr[:mid] \n        R = arr[mid:] \n  \n        mergeSort(L) \n        mergeSort(R) \n  \n        i = j = k"
+    },
+    {
+        "prompt": "def heapify(arr, n, i): \n    largest = i # Initialize largest as root \n    l = 2 * i + 1     # left = 2*i + 1 \n    r = 2 * i + 2     # right = 2*i + 2 \n  \n    # See if left child of root exists and is \n    # greater than root \n    if l < n and arr[i] < arr[l]: \n        largest = l \n  \n    # See if right child of root exists and is \n    # greater than root \n    if r < n and arr[largest] < arr[r]: \n        largest = r \n  \n    # Change root, if needed \n    if largest != i: \n        arr[i],arr[largest] = arr[largest],arr[i] # swap \n  \n        # He",
+        "completion": "apify the root. \n        heapify(arr, n, largest) \n\ndef heapify(arr, n, i): \n    largest = i # Initialize largest as root \n    l = 2 * i + 1     # left = 2*i + 1 \n    r = 2 * i + 2     # right = 2*i + 2 \n  \n    # See if left child of root exists and is \n    # greater"
+    },
+    {
+        "prompt": "def radix_sort(lst):\n\n max_len = 0\n\nfor item in lst:\n\nif len(str(item)) > max_len:\n\nmax_len = len(str(item))\n\nfor i in range(1,max_len+1):\n\nlst = sort_list(lst,i)\n\nreturn lst\n\ndef sort_list(lst,i):\n\n buckets = [[] for x in range(10)]\n\nfor num in lst:\n\ndigit = get_digit(num,i)\n\nbuckets[digit].append(num)\n\nsorted_list = []\n\nfor bucket in buckets:\n\nsorted_list.extend(bucket)\n\nreturn sorted_list\n\ndef get_digit(num,i):\n\n return (num//10**(i-1))",
+        "completion": "% 10\n\ndef radix_sort(lst):\n\nmax_len = 0\nfor item in lst:\n\tif len(str(item)) > max_len:\n\t\tmax_len = len(str(item))\nfor i in range(1,max_len+1):\n\tlst = sort_list(lst,i)\nreturn lst\n\ndef sort_list(lst,i):"
+    },
+    {
+        "prompt": "def bucketSort(array):\nbuckets = []\n\n# Create empty buckets\nfor i in range(len(array)):\nbuckets.append([])\n\n# Place items in appropriate bucket\nfor j in range(len(array)):\nindex_b = int(len(array)*array[j])\nbuckets[index_b].append(array[j])\n\n# Sort each bucket\nfor i in range(len(array)):\nbuckets[i] = sorted(buckets[i])\n\n# Flatten bucket list\nk = 0\nfor i in range(len(array)):\nfor j in range(len(buckets[i])):\narray[k] = buckets[i][j]\nk += 1\n\nreturn array",
+        "completion": "def bucketSort(array):\nbuckets = []\n\n# Create empty buckets\nfor i in range(len(array)):\nbuckets.append([])\n\n# Place items in appropriate bucket\nfor j in range(len(array)):\nindex_b = int(len(array)*array[j])\nbuckets[index_b].append(array[j])\n\n# Sort each bucket\nfor i in range(len(array"
+    },
+    {
+        "prompt": "def counting_sort(array):\n    \n    max_value = max(array)\n    min_value = min(array)\n    range_size = max_value - min_value + 1\n    counts = [0] * range_size\n               \n    for i in array:\n        counts[i - min_value] += 1             \n   \n    sorted_array = [0] * len(array)\n    current_sorted_index = 0\n   \n    for i in range(range_size):       \n        for j in range(counts[i]):            \n            sorted_array[current_sorted_index] = i + min_value\n            current_sorted_index += 1\n                \n    return sorted_array",
+        "completion": "def counting_sort(array):\n    \n    max_value = max(array)\n    min_value = min(array)\n    range_size = max_value - min_value + 1\n    counts = [0] * range_size\n               \n    for i in array:\n        counts[i - min_value] += 1                        \n   \n    sorted_array = [0] * len(array)\n    current_s"
+    },
+    {
+        "prompt": "from collections import deque\n\ndef topological_sort(graph):\n    in_degree = { u : 0 for u in graph }    \n    for u in graph:\n        for v in graph[u]:\n            in_degree[v] += 1\n\n    Q = deque()\n    for u in in_degree:\n        if in_degree[u] == 0:\n            Q.appendleft(u)\n\n    L = []\n    while Q:\n        u = Q.pop()\n        L.append(u)\n        for v in graph[u]:\n            in_degree[v] -= 1\n            if in_degree[v] == 0:\n                Q.appendleft(v)\n\n    return L",
+        "completion": "def topological_sort(graph):\n    in_degree = { u : 0 for u in graph }    \n    for u in graph:\n        for v in graph[u]:\n            in_degree[v] += 1\n\n    Q = deque()\n    for u in in_degree:\n        if in_degree[u] == 0:\n            Q.appendleft(u)\n\n    L = []\n    while Q:"
+    },
+    {
+        "prompt": "start = \"A\"\ngoal = \"B\"\n\n frontier = Queue()\n frontier.put(start)\n visited = set()\n visited.add(start)\n \n while not frontier.empty():\n    current = frontier.get()\n \n    if current == goal:\n       break\n \n    for next in graph.neighbors(current):\n       if next not in visited:\n          frontier.put(next)\n          visited.add(next)",
+        "completion": "start = \"A\"\ngoal = \"B\"\nfrontier = Queue()\nfrontier.put(start)\nvisited = {start}\n\nwhile not frontier.empty():\n    current = frontier.get()\n\n    if current == goal:\n       break\n\n    for next in graph.neighbors(current):\n       if next not in visited:\n          frontier.put(next)\n          visited.add(next)"
+    },
+    {
+        "prompt": "def dfs(graph, start):\n    visited = set()\n    stack = [start]\n\n    while stack:\n        vertex = stack.pop()\n\n        if vertex not in visited:\n            visited.add(vertex)\n\n            for neighbor in graph[vertex]:\n                stack.append(neighbor)\n\n    return visited",
+        "completion": "def dfs(graph, start):\n    visited = set()\n    stack = [start]\n\n    while stack:\n        vertex = stack.pop()\n\n        if vertex not in visited:\n            visited.add(vertex)\n            stack.extend(graph[vertex])\n\n    return visited"
+    },
+    {
+        "prompt": "def dijkstra(graph,source): \n    \n    # Initilaize all distances as INFINITE and stpSet as empty \n    for i in range(len(graph)): \n        dist[i] = float(\"Inf\") \n        stpSet[i] = False\n        \n    # Distance of source vertex from itself is always 0 \n    dist[source] = 0\n    \n    # Find shortest path for all vertices \n    for cout in range(len(graph)-1): \n  \n        # Pick the minimum distance vertex from the set of vertices not yet processed. u is always equal to src in first iteration \n        u = minDistance(dist, stpSet)\n  \n        # Mark the picked vertex as processed \n        stpSet[u] = True\n  \n        # Update dist value of the adjacent vertices of the picked",
+        "completion": "vertex. \n        for v in range(len(graph)): \n            if graph[u][v] > 0 and stpSet[v] == False and dist[v] > dist[u] + graph[u][v]: \n                    dist[v] = dist[u] + graph[u][v]\n                    \ndef minDistance(dist, stpSet): \n  \n    # Initilaize minimum distance for next node"
+    },
+    {
+        "prompt": "1. Initialize an empty list lst.\n\n2. Add the starting node to the list lst.\n\n3. While the list lst is not empty:\n\n4.     Remove a node n from the list lst.\n\n5.     Add all of n's neighbors to the list lst.\n\n6.     For each neighbor m of n:\n\n7.         If m is not in the list lst:\n\n8.             Add m to the list lst.\n\n9.             If m is not in the list lst:\n\n10.                Add m to the list lst.",
+        "completion": "1. Initialize an empty list lst.\n\n2. Add the starting node to the list lst.\n\n3. While the list lst is not empty:\n\n4.     Remove a node n from the list lst.\n\n5.     Add all of n's neighbors to the list lst.\n\n6.     For each neighbor m of n:\n\n7.         If m is not in the list lst:"
+    },
+    {
+        "prompt": "1. Sort the edges of the graph by weight in ascending order.\n\n2. Begin with the smallest edge and add it to the spanning tree.\n\n3. If the next edge does not create a cycle, add it to the spanning tree.\n\n4. Repeat step 3 until all the edges have been added.",
+        "completion": "edges = graph.edges\nedges.sort(key=lambda e: e.weight)\n\nfor edge in edges:\n    if not create_cycle(edge):\n        add_to_spanning_tree(edge)"
+    },
+    {
+        "prompt": "def FloydWarshall(graph): \n \n    V = len(graph) \n\n    dist = graph \n\n    for k in range(V): \n\n        for i in range(V): \n\n            for j in range(V): \n\n                dist[i][j] = min(dist[i][j], \n\n                                 dist[i][k]+ dist[k][j] \n\n                                ) \n    return dist",
+        "completion": "def FloydWarshall(graph): \n \n    V = len(graph) \n\n    dist = graph \n\n    for k in range(V): \n\n        for i in range(V): \n\n            for j in range(V): \n\n                dist[i][j] = min(dist[i][j], \n\n                                 dist[i][k]+ dist[k][j] \n\n                                ) \n    return"
+    },
+    {
+        "prompt": "from collections import deque\n\ndefBellman_Ford(G, s):\n\nn = len(G)\nINF = float(\"inf\")\ndist = [INF] * n\n\ndist[s] = 0\n\nfor i in range(n - 1):\n\nfor u in range(n):\n\nfor v in G[u]:\n\nif dist[v] > dist[u] + G[u][v]:\n\ndist[v] = dist[u] + G[u][v]\n\nreturn dist\n\ndef main():\n\nG = [[0, 1, -1],\n\n[0, 2, 4],\n\n[1, 2, 3],\n\n[1, 3, 2],\n\n[1, 4, 2],\n\n[3, 2, 5],\n\n[3, 1, 1],\n\n[4, 3,",
+        "completion": "-3]]\n\ns = 0\n\nprint(defBellman_Ford(G, s))\n\nmain()\n\nfrom collections import deque\n\ndefBellman_Ford(G, s):\n\nn = len(G)\nINF = float(\"inf\")\ndist = [INF] * n\n\ndist[s] = 0\n\nfor i in range(n - 1):\n\nfor u in range(n):"
+    },
+    {
+        "prompt": "import heapq\n\ndef astar(start, goal):\n\n    frontier = []\n    heapq.heapify(frontier)\n    came_from = {}\n    cost_so_far = {}\n\n    heapq.heappush(frontier, (0, start))\n    came_from[start] = None\n    cost_so_far[start] = 0\n\n    while frontier:\n        current = heapq.heappop(frontier)[1]\n\n        if current == goal:\n            break\n\n        for next in graph.neighbors(current):\n            new_cost = cost_so_far[current] + graph.cost(current, next)\n            if next not in cost_so_far or new_cost < cost_so_far[next]:\n                cost_so_far[next] = new_cost\n                priority = new_cost +",
+        "completion": "heuristic(goal, next)\n                heapq.heappush(frontier, (priority, next))\n                came_from[next] = current\n\n    return came_from, cost_so_far\n\nimport heapq\n\ndef astar(start, goal):\n    frontier = []\n    heapq.heapify(frontier)\n    came_from = {}\n    cost_so_far = {}\n    heapq.he"
+    },
+    {
+        "prompt": "class TrieNode: \n    \n    def __init__(self): \n        self.children = [None]*26\n        self.isEndOfWord = False\n\nclass Trie: \n    \n    def __init__(self): \n        self.root = self.getNode() \n  \n    def getNode(self): \n  \n        return TrieNode() \n  \n    def _charToIndex(self,ch): \n        \n        return ord(ch)-ord('a') \n  \n    def insert(self,key): \n          \n        crawl_node = self.root \n        length = len(key) \n        for level in range(length): \n            index = self._charToIndex(key[level]) \n  \n            if not crawl_node.children[index]: \n                crawl_node",
+        "completion": ".children[index] = self.getNode() \n            crawl_node = crawl_node.children[index] \n  \n        crawl_node.isEndOfWord = True\n\nclass TrieNode: \n    \n    def __init__(self): \n        self.children = [None]*26\n        self.isEndOfWord = False\n\nclass Trie: \n    \n    def __init__(self):"
+    },
+    {
+        "prompt": "1. Technique 1: The Modulo Operator\n\nThe modulo operator (%) is a very common technique for hashing values in Python. The modulo operator returns the remainder of a division operation. For example, if we divide 5 by 2, the remainder is 1.\n\nWe can use the modulo operator to hash values by taking the value to be hashed and dividing it by the size of the hash table. The remainder is the index where the value will be stored in the table.\n\n2. Technique 2: The Division Method\n\nThe division method is another common technique for hashing values in Python. To use the division method, we divide the value to be hashed by the size of the hash table. The integer part of the division is the index where the value will be stored in the table.\n\n3. Technique 3: The Multiplication Method\n\nThe multiplication method is a variation of the division method. To use the multiplication method, we",
+        "completion": "first multiply the value to be hashed by a constant (often called the \u201chash constant\u201d). Then we divide the result by the size of the hash table. The integer part of the division is the index where the value will be stored in the table.\n\n1. To hash values using the modulo operator, we take the value to be hashed and divide it by the size of the hash table. The remainder is the index where the value will be stored in the table"
+    },
+    {
+        "prompt": "1. Initialize an empty bit array of m bits.\n\n2. Initialize an empty hash set.\n\n3. For each key k in the input set:\n\n4. Compute the hash value h of k.\n\n5. Set the hth bit in the bit array to 1.\n\n6. Add k to the hash set.\n\n7. For each key k in the input set:\n\n8. Compute the hash value h of k.\n\n9. If the hth bit in the bit array is 0, then k is not in the set.",
+        "completion": "1. Initialize an empty bit array of m bits.\n2. Initialize an empty hash set.\n3. For each key k in the input set:\n4. Compute the hash value h of k.\n5. Set the hth bit in the bit array to 1.\n6. Add k to the hash set.\n7. For each key k in the input set:\n8. Compute the hash value h of k.\n9."
+    },
+    {
+        "prompt": "def dynamic_programming(l, n):\n    \"\"\"\n    >>> l = [1, 2, 3]\n    >>> n = 4\n    >>> dynamic_programming(l, n)\n    [0, 1, 2, 3, 4]\n    \"\"\"\n    # Initialize results array\n    dp = [0 for i in range(n+1)]\n\n    # Base case\n    dp[0] = 1\n\n    # Iterate through list l\n    for i in range(len(l)):\n        # Iterate through dp array\n        for j in range(n+1):\n            # If current value in list l is less than or equal to\n            # current value in dp array\n            if l[i] <= j:\n                # Update dp array\n                dp[j] += dp[j - l[i]]\n    return d",
+        "completion": "p\n\ndef dynamic_programming(l, n):\n    \"\"\"\n    >>> l = [1, 2, 3]\n    >>> n = 4\n    >>> dynamic_programming(l, n)\n    [0, 1, 2, 3, 4]\n    \"\"\"\n    dp = [0 for i in range(n+1)]\n    dp[0] = 1\n\n    for i in range(len(l)):"
+    },
+    {
+        "prompt": "def knapsack(items, max_weight):\n    n = len(items)\n    dp = [[0] * (max_weight + 1) for _ in range(n + 1)]\n \n    for i in range(n + 1):\n        for w in range(max_weight + 1):\n            if i == 0 or w == 0:\n                dp[i][w] = 0\n            elif items[i - 1].weight <= w:\n                dp[i][w] = max(items[i - 1].value + dp[i - 1][w - items[i - 1].weight],  dp[i - 1][w])\n            else:\n                dp[i][w] = dp[i - 1][w]\n \n    return dp[n][max_weight]",
+        "completion": "def knapsack(items, max_weight):\n    n = len(items)\n    dp = [[0] * (max_weight + 1) for _ in range(n + 1)]\n \n    for i in range(n + 1):\n        for w in range(max_weight + 1):\n            if i == 0 or w == 0:\n                dp[i][w] = 0\n            elif items["
+    },
+    {
+        "prompt": "def lcs(X, Y):\n\nm = len(X)\nn = len(Y)\n\n# An (m+1) by (n+1) matrix\nC = [[0] * (n + 1) for _ in range(m + 1)]\n\nfor i in range(1, m+1):\n    for j in range(1, n+1):\n        if X[i-1] == Y[j-1]: \n            C[i][j] = C[i-1][j-1] + 1\n        else:\n            C[i][j] = max(C[i][j-1], C[i-1][j])\n\n# backtrack to find the actual LCS\ni = m\nj = n\n\n# we start from the bottom-right corner of the matrix\n# and we move to the left or up",
+        "completion": "# depending on the value of the matrix\n\nlcs_set = set()\n\nwhile i > 0 and j > 0:\n    if C[i][j] == C[i-1][j]:\n        i -= 1\n    elif C[i][j] == C[i][j-1]:\n        j -= 1\n    else:\n        assert X[i-1] == Y[j-1]\n        l"
+    },
+    {
+        "prompt": "def editDistance(str1, str2):\n\n    m = len(str1)\n    n = len(str2)\n\n    # Create a table to store results of subproblems\n    dp = [[0 for x in range(n+1)] for x in range(m+1)]\n\n    # Fill d[][] in bottom up manner\n    for i in range(m+1):\n        for j in range(n+1):\n\n            # If first string is empty, only option is to\n            # insert all characters of second string\n            if i == 0:\n                dp[i][j] = j    # Min. operations = j\n\n            # If second string is empty, only option is to\n            # remove all characters of second string\n            elif j == 0:\n                dp[i][j] = i    # Min. operations",
+        "completion": "= i\n\n            # If last characters are same, ignore last char\n            # and recur for remaining string\n            elif str1[i-1] == str2[j-1]:\n                dp[i][j] = dp[i-1][j-1]\n\n            # If last character are different, consider all\n            # possibilities and find minimum\n            else:\n                dp[i][j] = 1 + min(dp"
+    },
+    {
+        "prompt": "There are many ways to write code for the Fibonacci Sequence. Here are a few examples:\n\n# Recursive\ndef Fibonacci(n):\n    if n<=0:\n        print(\"Incorrect input\")\n    elif n==1:\n        return 0\n    elif n==2:\n        return 1\n    else:\n        return Fibonacci(n-1)+Fibonacci(n-2)\n\n# iterative\ndef Fibonacci(n):\n    a=0\n    b=1\n    if n<=0:\n        print(\"Incorrect input\")\n    elif n==1:\n        return a\n    elif n==2:\n        return b\n    else:\n        for i in range(2,n):\n            c=a+b\n            a=b\n            b=c\n        return b",
+        "completion": "#simple\ndef Fibonacci(n):\n    if n<=0:\n        print(\"Incorrect input\")\n    elif n==1:\n        return 0\n    elif n==2:\n        return 1\n    else:\n        return Fibonacci(n-1)+Fibonacci(n-2)"
+    },
+    {
+        "prompt": "def MatrixChainMultiplication(arr, n): \n  \n    m = [[0 for x in range(n)]for x in range(n)] \n  \n    # Looping through the length \n    for L in range(2,n): \n        for i in range(1,n-L+1): \n            j = i+L-1\n            m[i][j] = sys.maxsize \n            for k in range(i,j): \n                # q = cost/scalar multiplications \n                q = m[i][k] + m[k+1][j] + arr[i-1]*arr[k]*arr[j] \n                if q < m[i][j]: \n                    m[i][j] = q \n  \n    return m[1][n-1]",
+        "completion": "def MatrixChainMultiplication(arr, n):\n    \n    m = [[0 for x in range(n)]for x in range(n)] \n  \n    # Looping through the length \n    for L in range(2,n): \n        for i in range(1,n-L+1): \n            j = i+L-1\n            m[i][j] = sys.maxsize"
+    },
+    {
+        "prompt": "def coinChange(coins, amount):\n    max = amount + 1\n    dp = [max] * max\n    dp[0] = 0\n\n    for i in range(1, amount+1):\n        for j in range(len(coins)):\n            if coins[j] <= i:\n                dp[i] = min(dp[i], dp[i - coins[j]] + 1)\n    if dp[amount] > amount:\n        return -1\n    return dp[amount]",
+        "completion": "def coinChange(coins, amount):\n    max = amount + 1\n    dp = [max] * max\n    dp[0] = 0\n    for took in range(len(coins)):\n        for money in range(coins[took], amount+1):\n                dp[money] = min(dp[money], dp[money - coins[took]] + 1)\n    if dp[amount] >"
+    },
+    {
+        "prompt": "def shortest_supersequence(s1, s2): \n\n    m = len(s1) \n    n = len(s2) \n\n    # Generate lookup table for all possible \n\n    # lengths of substrings \n\n    L = [[0 for x in range(n+1)] for x in range(m+1)] \n\n    # Fill lookup table L[][] in bottom up manner \n\n    for i in range(m+1): \n        for j in range(n+1): \n\n            if i == 0 or j == 0: \n                L[i][j] = 0\n\n            elif s1[i-1] == s2[j-1]: \n                L[i][j] = L[i-1][j-1] + 1\n\n            else: \n                L[",
+        "completion": "i][j] = max(L[i-1][j], L[i][j-1]) \n\n    # Following code is used to print shortest \n\n    # supersequence \n    # Strings of answer type \n\n    i = m \n    j = n \n\n    # Iterate through the lookup table L[][] \n    # From the rightmost-bottommost cell, trace up \n\n    # and insert characters based on the"
+    },
+    {
+        "prompt": "def greedy(alist, key):\n\ndef getBest(alist, key):\n\nbest = alist[0]\n\nfor item in alist:\n\nif key(item)  key(best):\n\nbest = item\n\nreturn best\n\ndef greedy(alist, key):\n\nresult = []\n\nwhile len(alist)  0:\n\nbest = getBest(alist, key)\n\nresult.append(best)\n\nalist.remove(best)\n\nreturn result",
+        "completion": "def getBest(alist, key):\n\nbest = alist[0]\n\nfor item in alist:\n\nif key(item)  key(best):\n\nbest = item\n\nreturn best\n\ndef greedy(alist, key):\n\nresult = []\n\nwhile len(alist)  0:\n\nbest = getBest(alist, key)\n\nresult.append(best)\n\nalist.remove(best)"
+    },
+    {
+        "prompt": "def fractionalKnapsack(W, wt, val, n):\n\n    # W = total weight of the knapsack\n    # wt = list of weights of the items\n    # val = list of values of the items\n    # n = number of items\n\n    # Base case\n    if W == 0 or n == 0:\n        return 0\n\n    # If weight of the nth item is more than knapsack weight W\n    if (wt[n-1] > W):\n        return fractionalKnapsack(W, wt, val, n-1)\n\n    else:\n        return max(val[n-1] + fractionalKnapsack(W-wt[n-1], wt, val, n-1), fractionalKnapsack(W, wt, val, n-1))",
+        "completion": "def fractionalKnapsack(W, wt, val, n):\n\n    # Base case\n    if W == 0 or n == 0:\n        return 0\n\n    # If weight of the nth item is more than knapsack weight W\n    if wt[n-1] > W:\n        return fractionalKnapsack(W, wt, val, n-1)\n\n    else:\n        return max(val["
+    },
+    {
+        "prompt": "import heapq\nfrom collections import defaultdict\n \ndef encode(symbols, probs):\n    \"\"\"Huffman encode the given symbol frequencies.\n \n    Returns:\n        A list of (symbol, code) tuples, one for each symbol.\n \n    Raises:\n        ValueError: if the given probabilities do not sum to 1.0.\n \n    \"\"\"\n    if abs(sum(probs) - 1.0) > 1e-6:\n        raise ValueError('Probabilities must sum to 1.0')\n \n    # Build frequency heap\n    heap = [(prob, (symbol, [])) for symbol, prob in zip(symbols, probs)]\n    heapq.heapify(heap)\n \n    # Merge frequencies until only a single symbol remains\n    while len(heap) > 1:",
+        "completion": "prob1, (symbol1, code1) = heapq.heappop(heap)\n        prob2, (symbol2, code2) = heapq.heappop(heap)\n        heapq.heappush(heap, (prob1 + prob2, (None, code1 + code2)))\n \n    # Return symbols and their codes\n    return sorted((symbol, ''.join(code"
+    },
+    {
+        "prompt": "Here is some pseudo-code for the algorithm:\n\n1. Sort the activities by start time.\n2. Select the first activity.\n3. For each remaining activity:\n    If the activity starts after the first activity ends, select it.\n4. Print the selected activities.\n\nHere is some Python code for the algorithm:\n\n1. Sort the activities by start time.\n2. Select the first activity.\n3. For each remaining activity:\n    If the activity starts after the first activity ends, select it.\n4. Print the selected activities.",
+        "completion": ""
+    },
+    {
+        "prompt": "def kruskal(g):\n    edges = []\n    for v in g.vertices:\n        for w in v.adjacent:\n            edges.append((v.key, w.key, v.weight(w)))\n    edges.sort(key = lambda x: x[2])\n    T = set()\n    for edge in edges:\n        v, w, _ = edge\n        if v not in T and w not in T:\n            T.add(v)\n            T.add(w)\n            print(\"%s-%s\" % (v, w))",
+        "completion": "def kruskal(g):\n    edges = [(v.key, w.key, v.weight(w)) for v in g.vertices for w in v.adjacent]\n    edges.sort(key = lambda x: x[2])\n    T = set()\n    for edge in edges:\n        v, w, _ = edge\n        if v not in T and w not in T:\n            T.add("
+    },
+    {
+        "prompt": "1. Initialize the flow to zero.\n\n2. While there exists an augmenting path from source to sink:\n\n3. Find an augmenting path using DFS or BFS.\n\n4. Increment the flow along the path.\n\n5. Return the max flow.",
+        "completion": "1. Initialize the flow to zero.\n2. While there exists an augmenting path from source to sink:\n3. Find an augmenting path using DFS or BFS.\n4. Increment the flow along the path.\n5. Return the max flow."
+    },
+    {
+        "prompt": "def longestIncreasingSubsequence(nums): \n    n = len(nums) \n   \n    # Base Case \n    if n == 0: \n        return 0\n \n    # This array is used to store the length  \n    # of Increasing subsequence ending with arr[i]  \n    # Note that LIS value for index 0 is always 1 \n    lis = [1]*n \n   \n    # Compute optimized LIS values in bottom up manner \n    for i in range (1 , n): \n        for j in range(0 , i): \n            if nums[i] > nums[j] and lis[i]< lis[j] + 1 : \n                lis[i] = lis[j]+1\n\n    # Initialize maximum to 0 to get the maximum \n    # of all L",
+        "completion": "IS \n    maximum = 0\n\n    # Pick maximum of all LIS values \n    for i in range(n): \n        maximum = max(maximum , lis[i]) \n   \n    return maximum\ndef longestIncreasingSubsequence(nums): \n    n = len(nums) \n   \n    # Base Case \n    if n == 0: \n        return 0\n\ndef longestIncreasingSubsequence(n"
+    },
+    {
+        "prompt": "1.Graph Coloring Algorithm:\n\ndef graph_coloring(graph, colors):\n    for node in graph:\n        if node in colors:\n            continue\n        # Find the valid colors for the current node\n        valid_colors = get_valid_colors(node, colors)\n        # Assign the first valid color to the node\n        colors[node] = valid_colors[0]\n    return colors\n\n# A function to get the valid colors for the current node\ndef get_valid_colors(node, colors):\n    valid_colors = [True] * len(colors)\n    for neighbor in node.neighbors:\n        if neighbor in colors:\n            color = colors[neighbor]\n            valid_colors[color] = False\n    return [i for i, v in enumerate(valid_colors) if v",
+        "completion": "]\n\ndef graph_coloring(graph, colors):\n    for node in graph:\n        if node in colors:\n            continue\n        # Find the valid colors for the current node\n        valid_colors = get_valid_colors(node, colors)\n        # Assign the first valid color to the node\n        colors[node] = valid_colors[0]\n    return colors\n\n# A function to get the valid colors for"
+    },
+    {
+        "prompt": "def johnsons(array): \n    \n    n = len(array) \n    \n    for i in range(n): \n        for j in range(i+1, n): \n            if array[i] > array[j]: \n                array[i], array[j] = array[j], array[i] \n                \n    return array",
+        "completion": "def johnsons(array): \n    \n    for i in range(len(array)): \n        for j in range(i+1, len(array)): \n            if array[i] > array[j]: \n                array[i], array[j] = array[j], array[i] \n                \n    return array"
+    }
+]
